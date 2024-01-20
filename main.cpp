@@ -17,8 +17,8 @@ int main() {
 	face.load("haarcascade_frontalface_default.xml");
 	smile.load("haarcascade_smile.xml");
 
-	cv::namedWindow("a", cv::WINDOW_NORMAL);
-	cv::setWindowProperty("a", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN); //FULLSCREEN
+	cv::namedWindow("win", cv::WINDOW_NORMAL);
+	cv::setWindowProperty("win", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN); //FULLSCREEN
 
 	if (!cap.isOpened()) { std::cout << "ERROR"; return -1; }
 	while (true) {
@@ -53,7 +53,7 @@ int main() {
 			cv::rectangle(img, cv::Point(faces[i].x, faces[i].y), cv::Point(faces[i].x + faces[i].width, faces[i].y + faces[i].height), cv::Scalar(0, 121, 225), 5);
 		}
 
-		cv::imshow("a", img);
+		cv::imshow("win", img);
 		inBox = 0;
 		int c = cv::waitKey(1);
 		if (c==32) break;
